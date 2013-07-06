@@ -20,15 +20,11 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         id        = "io.cordova.helloCordova"
         version   = "2.0.0">
-    <name>Kaidad Geo</name>
+    <name>Offline Demo</name>
 
     <description>
-        Kaidad Geo is an edutainment at it's best - take virtual field trips around the world!
+        Demo app showing use of offline maps
     </description>
-
-    <author href="http://www.kaidad.com" email="dave.winterbourne+kaidad@gmail.com">
-        Kaidad Geo Team
-    </author>
 
     <access origin="*"/>
 
@@ -44,9 +40,6 @@
       <preference name="disallowOverscroll" value="true" />
     -->
 
-    <feature name="DatabaseFetcherPlugin">
-        <param name="android-package" value="com.kaidad.geo.plugins.DatabaseFetcherPlugin"/>
-    </feature>
     <feature name="SQLitePlugin">
         <param name="android-package" value="com.phonegap.plugin.sqlitePlugin.SQLitePlugin"/>
     </feature>
