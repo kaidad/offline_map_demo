@@ -22,17 +22,6 @@ import org.json.JSONObject;
 import java.io.File;
 import java.util.HashMap;
 
-/**
- * SQLitePlugin was downloaded from https://github.com/pgsqlite/PG-SQLitePlugin-Android.
- *
- * However, this file has been modified to mitigate some performance issues. Specifically,
- * I determined that most of the time was spent in JSONArray.toString() in the results2string
- * method. It turns out JSONArray.toString() processed the object graph one character at a time
- * and this was very inefficient. I modified this to use a very simplified approach using a
- * StringBuilder and this resulted in noticeable improvement in rendering speed. I still feel
- * the rendering speed is WAY too slow considering the fact that we're loading the map tiles
- * from a local database rather than making network calls, but this is a good start.
- */
 @SuppressWarnings("unused")
 public class SQLitePlugin extends CordovaPlugin {
     public static final char ARRAY_START = '[';
@@ -351,8 +340,12 @@ public class SQLitePlugin extends CordovaPlugin {
                 int colCount = cur.getColumnCount();
 
                 // Build up JSON result object for each row
+                int objNumber = 0;
                 do {
                     //JSONObject row = new JSONObject();
+                    if (objNumber++ > 0) {
+                        sb.append(COMMA);
+                    }
                     sb.append(OBJ_START);
                     for (int i = 0; i < colCount; ++i) {
                         key = cur.getColumnName(i);
