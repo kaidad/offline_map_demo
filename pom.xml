@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.kaidad</groupId>
-    <artifactId>geo-parent</artifactId>
+    <artifactId>demo-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>geo - Parent</name>
+    <name>demo - Parent</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -86,7 +86,7 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <modules>
-                <module>geo</module>
+                <module>demo</module>
             </modules>
         </profile>
         <profile>
@@ -102,12 +102,12 @@
                 </property>
             </activation>
             <modules>
-                <module>geo</module>
+                <module>demo</module>
             </modules>
         </profile>
     </profiles>
 
     <modules>
-        <module>geo</module>
+        <module>demo</module>
     </modules>
 </project>
